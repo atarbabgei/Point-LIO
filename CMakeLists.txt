@@ -52,7 +52,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   pcl_ros
   tf
-  livox_ros_driver
+  livox_ros_driver2
   message_generation
   eigen_conversions
 )
@@ -77,7 +77,5 @@ catkin_package(
 
 add_executable(pointlio_mapping src/laserMapping.cpp include/ikd-Tree/ikd_Tree.cpp src/parameters.cpp src/preprocess.cpp src/Estimator.cpp)
 target_link_libraries(pointlio_mapping ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${PYTHON_LIBRARIES})
+add_dependencies(pointlio_mapping ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_include_directories(pointlio_mapping PRIVATE ${PYTHON_INCLUDE_DIRS})
-
-
-
